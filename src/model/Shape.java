@@ -1,18 +1,25 @@
 package model;
+
+import view.interfaces.PaintCanvasBase;
+
 import java.awt.*;
 
+/**
+ *     This is builder pattern for shape builder, and this is a class for storing parameters so other class are
+ *     able to access it through getter.
+ */
 public class Shape {
 
-    private Point startPoint;
-    private Point endPoint;
+    private PaintCanvasBase paintCanvas;
+    private TwoPoint twoPoint;
     private Color primaryColor;
     private Color secondaryColor;
     private ShapeType shapeType;
     private ShapeShadingType shadingType;
 
     private Shape(ShapeBuilder shapeBuilder) {
-        this.startPoint = shapeBuilder.startPoint;
-        this.endPoint = shapeBuilder.endPoint;
+        this.paintCanvas = shapeBuilder.paintCanvas;
+        this.twoPoint = shapeBuilder.twoPoint;
         this.primaryColor = shapeBuilder.primaryColor;
         this.secondaryColor = shapeBuilder.secondaryColor;
         this.shapeType = shapeBuilder.shapeType;
@@ -20,20 +27,20 @@ public class Shape {
     }
 
     public static class ShapeBuilder {
-        private Point startPoint;
-        private Point endPoint;
+        private PaintCanvasBase paintCanvas;
+        private TwoPoint twoPoint;
         private Color primaryColor;
         private Color secondaryColor;
         private ShapeType shapeType;
         private ShapeShadingType shadingType;
 
-        public ShapeBuilder setStartPoint(Point startPoint) {
-            this.startPoint = startPoint;
+        public ShapeBuilder setPaintCanvas(PaintCanvasBase paintCanvas) {
+            this.paintCanvas = paintCanvas;
             return this;
         }
 
-        public ShapeBuilder setEndPoint(Point endPoint) {
-            this.endPoint = endPoint;
+        public ShapeBuilder setTwoPoint(TwoPoint twoPoint) {
+            this.twoPoint = twoPoint;
             return this;
         }
 
@@ -62,12 +69,12 @@ public class Shape {
         }
     }
 
-    public Point getStartPoint() {
-        return startPoint;
+    public PaintCanvasBase getPaintCanvas() {
+        return paintCanvas;
     }
 
-    public Point getEndPoint() {
-        return endPoint;
+    public TwoPoint getTwoPoint() {
+        return twoPoint;
     }
 
     public Color getPrimaryColor() {

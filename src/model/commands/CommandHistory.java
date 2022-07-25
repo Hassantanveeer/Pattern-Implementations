@@ -1,5 +1,5 @@
 package model.commands;
-import model.persistence.ICommand;
+import model.interfaces.ICommand;
 import java.util.Stack;
 
 public class CommandHistory {
@@ -28,6 +28,6 @@ public class CommandHistory {
             redoStack.push(comm);
             comm.redo();
         }
-        return solution;   
+        return solution;
 }
 }

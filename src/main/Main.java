@@ -20,16 +20,16 @@ import java.util.EnumMap;
 
 public class Main {
     public static void main(String[] args){
-    	PaintCanvasBase paintCanvas = new PaintCanvas();
+        PaintCanvasBase paintCanvas = new PaintCanvas();
         IGuiWindow guiWindow = new GuiWindow(paintCanvas);
         IUiModule uiModule = new Gui(guiWindow);
         ApplicationState appState = new ApplicationState(uiModule);
         IJPaintController controller = new JPaintController(uiModule, appState);
-        ShapeList shapeList = new ShapeList(paintCanvas);
+        ShapeList shapeList = new ShapeList();
 
         MouseListener mouseListener=new MouseListener(paintCanvas,appState,shapeList);
         paintCanvas.addMouseListener(mouseListener);
-        
+
         controller.setup();
 }
 }

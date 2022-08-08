@@ -14,13 +14,13 @@ import java.util.Stack;
 /**
  * The main purpose of MoveCommand is to update new coordinate to all observers
  */
-public class MoveCommand implements IStrategy, ICommand {
+public class MoveShapeCommand implements IStrategy, ICommand {
 
     private TwoPoint twoPoint;
     private ShapeList shapeList;
 
     MovementAlert movementAlert;
-    public MoveCommand(TwoPoint twoPoint, ShapeList shapeList) {
+    public MoveShapeCommand(TwoPoint twoPoint, ShapeList shapeList) {
         this.twoPoint = twoPoint;
         this.shapeList = shapeList;
     }

@@ -11,7 +11,7 @@ import java.util.Stack;
 /**
  * The main purpose of SelectCommand is to add observer (selected shape(s) are all observer) for observer pattern
  */
-public class SelectCommand implements IStrategy, ICommand {
+public class SelectShapeCommand implements IStrategy, ICommand {
 
     private TwoPoint twoPoint;
     private ShapeList shapeList;
@@ -19,7 +19,7 @@ public class SelectCommand implements IStrategy, ICommand {
     private Stack<Stack<IShape>> mySelectList;
     private Stack<Stack<IShape>> myUndoRedoList;
 
-    public SelectCommand(TwoPoint twoPoint, ShapeList shapeList) {
+    public SelectShapeCommand(TwoPoint twoPoint, ShapeList shapeList) {
         this.twoPoint = twoPoint;
         this.shapeList = shapeList;
     }

@@ -4,8 +4,8 @@ import model.*;
 import model.Point;
 import model.Shape;
 import model.commands.CreateShapeCommand;
-import model.commands.MoveCommand;
-import model.commands.SelectCommand;
+import model.commands.MoveShapeCommand;
+import model.commands.SelectShapeCommand;
 import model.persistence.ApplicationState;
 import view.interfaces.PaintCanvasBase;
 
@@ -47,10 +47,10 @@ public class MouseListener extends MouseAdapter {
             controller.setMouseMode(new CreateShapeCommand(newShape, shapeList));
             controller.execute();
         }else if(appState.getActiveMouseMode() == MouseMode.SELECT) {
-            controller.setMouseMode(new SelectCommand(twoPoint, shapeList));
+            controller.setMouseMode(new SelectShapeCommand(twoPoint, shapeList));
             controller.execute();
         } else {
-            controller.setMouseMode(new MoveCommand(twoPoint, shapeList));
+            controller.setMouseMode(new MoveShapeCommand(twoPoint, shapeList));
             controller.execute();
         }
     }

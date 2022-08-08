@@ -4,24 +4,26 @@
 
 ## All design pattern implemented code
 
-![alt text](IMG/builder-pattern.png "UML") <br>
+### MVC Pattern Implementation
 
-### Updated Shape Factory Implementation
+![alt text](IMG/mvc-pattern.png "UML") <br>
 
-![alt text](IMG/shape-factory-pattern.png "UML") <br>
-
-### Updated Strategy Pattern Implementation
+### Strategy Pattern Implementation
 
 ![alt text](IMG/strategy-pattern.png "UML") <br>
 
-### Updated Observer Pattern Implementation
+### Shape Factory Implementation
 
-![alt text](IMG/observer-pattern.png "UML") <br>
+![alt text](IMG/shape-factory-pattern.png "UML") <br>
+
+### Builder Pattern Implementation
+
+![alt text](IMG/builder-pattern.png "UML") <br>
 
 ### Decorator Pattern Implementation
 
 ![alt text](IMG/decorator-pattern.png "UML") <br>
 
-### MVC Pattern Implementation
+### Observer Pattern Implementation
 
-![alt text](IMG/mvc-pattern.png "UML") <br>
+![alt text](IMG/observer-pattern.png "UML") <br>

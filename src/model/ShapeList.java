@@ -1,9 +1,9 @@
 package model;
 
+
 import model.interfaces.IShape;
 
 import java.util.Stack;
-
 
 public class ShapeList {
 

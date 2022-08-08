@@ -3,6 +3,7 @@ package model.commands;
 import model.*;
 import model.interfaces.ICommand;
 import model.interfaces.IMovement;
+import model.interfaces.IShape;
 import model.interfaces.IStrategy;
 
 import java.util.Stack;
@@ -14,8 +15,9 @@ public class SelectCommand implements IStrategy, ICommand {
 
     private TwoPoint twoPoint;
     private ShapeList shapeList;
-    private Stack<Stack<IMovement>> mySelectList;
-    private Stack<Stack<IMovement>> myUndoRedoList;
+    MovementAlert movementAlert;
+    private Stack<Stack<IShape>> mySelectList;
+    private Stack<Stack<IShape>> myUndoRedoList;
 
     public SelectCommand(TwoPoint twoPoint, ShapeList shapeList) {
         this.twoPoint = twoPoint;
@@ -26,10 +28,10 @@ public class SelectCommand implements IStrategy, ICommand {
     public void run() {
         mySelectList = shapeList.getSelectList();
         myUndoRedoList = shapeList.getUndoRedoSelectList();
-        MovementAlert movementAlert = new MovementAlert();
+        movementAlert = new MovementAlert();
         movementAlert.addObserver(shapeList, twoPoint);
+        movementAlert.updateCurrentObserver(shapeList);
         CommandHistory.add(this);
-      
     }
 
     @Override
@@ -38,7 +40,7 @@ public class SelectCommand implements IStrategy, ICommand {
             return;
         }
         myUndoRedoList.add(mySelectList.pop());
-       
+        movementAlert.updateCurrentObserver(shapeList);
     }
 
     @Override
@@ -47,6 +49,6 @@ public class SelectCommand implements IStrategy, ICommand {
             return;
         }
         mySelectList.add(myUndoRedoList.pop());
-        //System.out.println("There are " + mySelectList.lastElement().size() + " shape(s) selected");
+        movementAlert.updateCurrentObserver(shapeList);
     }
 }

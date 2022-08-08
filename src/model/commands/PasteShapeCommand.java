@@ -1,6 +1,7 @@
 package model.commands;
 
 import model.MovementAlert;
+import model.PasteShape;
 import model.ShapeList;
 import model.interfaces.ICommand;
 

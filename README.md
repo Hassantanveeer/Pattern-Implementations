@@ -8,7 +8,7 @@
 
 ### Updated Shape Factory Implementation
 
-![alt text](IMG/shape-factory.png "UML") <br>
+![alt text](IMG/shape-factory-pattern.png "UML") <br>
 
 ### Updated Strategy Pattern Implementation
 

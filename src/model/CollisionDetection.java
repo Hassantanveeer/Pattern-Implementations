@@ -6,7 +6,7 @@ import model.interfaces.IShape;
 import java.util.Stack;
 
 
-public class CollisionDetection {
+public class CollisionDetection { 
 
     ShapeList shapeList;
     TwoPoint twoPoint;

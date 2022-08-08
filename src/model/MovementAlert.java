@@ -8,7 +8,7 @@ import java.util.Stack;
  * This is Observer Pattern
  * It used by SelectCommand to addObserver and used by MoveCommand to update new coordinate to all observers
  */
-public class MovementAlert {
+public class MovementAlert { 
 
     private Stack<IMovement> observers;
 

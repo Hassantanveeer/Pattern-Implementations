@@ -1,5 +1,9 @@
 package controller;
 
+import model.ShapeList;
+import model.commands.CopyShapeCommand;
+import model.commands.DeleteShapeCommand;
+import model.commands.PasteShapeCommand;
 import model.commands.RedoCommand;
 import model.commands.UndoCommand;
 import model.interfaces.IApplicationState;
@@ -10,17 +14,19 @@ import view.interfaces.IUiModule;
 public class JPaintController implements IJPaintController {
     private final IUiModule uiModule;
     private final IApplicationState applicationState;
-    
-    public JPaintController(IUiModule uiModule, IApplicationState applicationState) {
+    private final ShapeList shapeList;
+    public JPaintController(IUiModule uiModule, IApplicationState applicationState,
+            ShapeList shapeLis) {
         this.uiModule = uiModule;
         this.applicationState = applicationState;
+		this.shapeList = new ShapeList();
     }
 
     @Override
     public void setup() {
         setupEvents();
     }
-
+ 
     private void setupEvents() {
         uiModule.addEvent(EventName.CHOOSE_SHAPE, () -> applicationState.setActiveShape());
         uiModule.addEvent(EventName.CHOOSE_PRIMARY_COLOR, () -> applicationState.setActivePrimaryColor());
@@ -29,5 +35,8 @@ public class JPaintController implements IJPaintController {
         uiModule.addEvent(EventName.CHOOSE_MOUSE_MODE, () -> applicationState.setActiveStartAndEndPointMode());
         uiModule.addEvent(EventName.REDO, () -> new RedoCommand().redo());
         uiModule.addEvent(EventName.UNDO, () -> new UndoCommand().undo());
+        uiModule.addEvent(EventName.DELETE, () -> new DeleteShapeCommand(shapeList).run());
+        uiModule.addEvent(EventName.PASTE, () -> new PasteShapeCommand(shapeList).run());
+        uiModule.addEvent(EventName.DELETE, () -> new CopyShapeCommand(shapeList).run());
     }
 }

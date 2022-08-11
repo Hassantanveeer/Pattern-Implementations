@@ -6,7 +6,7 @@ import model.interfaces.ICommand;
 public class UngroupShapeCommand implements ICommand {
     ShapeList shapeList;
     GroupShape groupShape;
-    public UngroupCommand(ShapeList shapeList) {
+    public UngroupShapeCommand(ShapeList shapeList) {
         this.shapeList = shapeList;
     }
 

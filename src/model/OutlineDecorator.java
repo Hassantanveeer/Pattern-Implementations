@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Stack;
+
 import model.interfaces.IShape;
 
 public class OutlineDecorator {
@@ -9,6 +11,10 @@ public class OutlineDecorator {
     void draw(IShape shape) {
         outlineDrawer = new OutlineDrawer();
         outlineDrawer.draw(shape);
+    }
+    public void draw(Stack<IShape> groupList) {
+        outlineDrawer = new OutlineDrawer();
+        outlineDrawer.draw(groupList);
     }
 
 }

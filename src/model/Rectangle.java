@@ -38,14 +38,8 @@ public class Rectangle implements IShape {
 
     @Override
     public void clear() {
-        Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1,
-                new float[]{9}, 0);
-        g.setStroke(stroke);
         g.setColor(Color.WHITE);
-        g.fillRect(shape.getTwoPoint().getMinXY().getX() - 5, shape.getTwoPoint().getMinXY().getY() - 5,
-                shape.getTwoPoint().getWidth() + 10, shape.getTwoPoint().getHeight() + 10);
-        g.drawRect(shape.getTwoPoint().getMinXY().getX() - 5, shape.getTwoPoint().getMinXY().getY() - 5,
-                shape.getTwoPoint().getWidth() + 10, shape.getTwoPoint().getHeight() + 10);
+        g.fillRect(0, 0, 9999, 9999);
     }
 
     @Override

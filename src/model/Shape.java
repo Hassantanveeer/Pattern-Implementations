@@ -1,5 +1,4 @@
 package model;
-
 import view.interfaces.PaintCanvasBase;
 
 import java.awt.*;
@@ -12,6 +11,8 @@ public class Shape {
     private Color secondaryColor;
     private ShapeType shapeType;
     private ShapeShadingType shadingType;
+    // default is not grouped
+    private boolean isGroup = false;
 
     public Shape(PaintCanvasBase paintCanvas, TwoPoint twoPoint, Color primaryColor,
                  Color secondaryColor, ShapeType shapeType, ShapeShadingType shadingType) {
@@ -45,5 +46,13 @@ public class Shape {
 
     public ShapeShadingType getShadingType() {
         return shadingType;
+    }
+
+    public boolean isGroup() {
+        return isGroup;
+    }
+
+    public void groupSwitcher() {
+        isGroup = !isGroup;
     }
 }

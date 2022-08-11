@@ -7,33 +7,34 @@ import model.interfaces.ICommand;
 import model.interfaces.IShape;
 
 public class CopyShapeCommand implements ICommand{
-	 ShapeList shapeList;
-	    Stack<IShape> myClipboard;
 
-	    public CopyShapeCommand(ShapeList shapeList) {
-	        this.shapeList = shapeList;
-	    }
+    ShapeList shapeList;
+    Stack<IShape> myClipboard;
 
-	    public void run() {
-	        if (shapeList.getSelectList().isEmpty()) {
-	            return;
-	        }
-	        myClipboard = shapeList.getClipboard();
-	        for (IShape shape : shapeList.getSelectList().lastElement()) {
-	            myClipboard.add(shape);
-	        }
-	        CommandHistory.add(this);
-	    }
+    public CopyShapeCommand(ShapeList shapeList) {
+        this.shapeList = shapeList;
+    }
 
-	    @Override
-	    public void undo() {
-	        myClipboard.clear();
-	    }
+    public void run() {
+        if (shapeList.getSelectList().isEmpty()) {
+            return;
+        }
+        myClipboard = shapeList.getClipboard();
+        for (IShape shape : shapeList.getSelectList().lastElement()) {
+            myClipboard.add(shape);
+        }
+        CommandHistory.add(this);
+    }
 
-	    @Override
-	    public void redo() {
-	        for (IShape shape : shapeList.getSelectList().lastElement()) {
-	            myClipboard.add(shape);
-	        }
-	    }
+    @Override
+    public void undo() {
+        myClipboard.clear();
+    }
+
+    @Override
+    public void redo() {
+        for (IShape shape : shapeList.getSelectList().lastElement()) {
+            myClipboard.add(shape);
+        }
+    }
 }

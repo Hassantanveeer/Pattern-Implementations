@@ -39,12 +39,8 @@ public class Triangle implements IShape {
 
     @Override
     public void clear() {
-        Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1,
-                new float[]{9}, 0);
-        g.setStroke(stroke);
         g.setColor(Color.WHITE);
-        g.fillPolygon(xPoints, yPoints, 3);
-        g.drawPolygon(xPoints, yPoints, 3);
+        g.fillRect(0, 0, 9999, 9999);
     }
 
     @Override

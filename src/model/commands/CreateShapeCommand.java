@@ -25,10 +25,7 @@ public class CreateShapeCommand implements IStrategy, ICommand {
         this.shapeList = shapeList;
     }
 
-    /*
-    Once we start run this class, it will push the new shape into ShapeList
-    Same time, we push our command to CommandHistory
-     */
+
     @Override
     public void run() {
         myShapeList = shapeList.getShapeList();
@@ -39,10 +36,6 @@ public class CreateShapeCommand implements IStrategy, ICommand {
         CommandHistory.add(this);
     }
 
-    /*
-    Undo method just pop last shape from shapeList and add it to undoRedoList.
-    Before we do that, we clear the shape on canvas.
-     */
     @Override
     public void undo() {
         if (myShapeList.isEmpty()) {
@@ -50,18 +43,14 @@ public class CreateShapeCommand implements IStrategy, ICommand {
         }
         myShapeList.lastElement().clear();
         myUndoRedoList.add(myShapeList.pop());
-        // System.out.println("create: undo");
+
     }
 
-    /*
-    Redo is similar as undo, we pop shape from undoRedoList and add it to shapeList, after that redraw this shape on canvas.
-     */
     @Override
     public void redo() {
         if (myUndoRedoList.isEmpty()) {
             return;
         }
         shapeList.addShape(myUndoRedoList.pop());
-        // System.out.println("create: redo");
     }
 }

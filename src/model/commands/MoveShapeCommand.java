@@ -20,6 +20,7 @@ public class MoveShapeCommand implements IStrategy, ICommand {
     private ShapeList shapeList;
 
     MovementAlert movementAlert;
+
     public MoveShapeCommand(TwoPoint twoPoint, ShapeList shapeList) {
         this.twoPoint = twoPoint;
         this.shapeList = shapeList;
@@ -27,8 +28,8 @@ public class MoveShapeCommand implements IStrategy, ICommand {
 
     @Override
     public void run() {
-        movementAlert = new MovementAlert();
-        movementAlert.addMovement(twoPoint, shapeList);
+        movementAlert = new MovementAlert(shapeList);
+        movementAlert.addMovement(twoPoint);
         CommandHistory.add(this);
     }
 
@@ -37,7 +38,7 @@ public class MoveShapeCommand implements IStrategy, ICommand {
         if (shapeList.getMovementList().isEmpty()) {
             return;
         }
-        movementAlert.undoMove(shapeList);
+        movementAlert.undoMove();
     }
 
     @Override
@@ -45,6 +46,6 @@ public class MoveShapeCommand implements IStrategy, ICommand {
         if (shapeList.getUndoRedoMovementList().isEmpty()) {
             return;
         }
-        movementAlert.redoMove(shapeList);
+        movementAlert.redoMove();
     }
 }

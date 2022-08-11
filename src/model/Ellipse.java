@@ -8,7 +8,7 @@ import java.awt.*;
  * It implement IShape so it has functions of drawing shape and erasing shape, also it implement IMovementObserver,
  * so this shape can keep updating its coordinate through movement change
  */
-public class Ellipse implements IShape {
+public class Ellipse implements IShape  {
 
     Shape shape;
     private Graphics2D g;
@@ -38,14 +38,8 @@ public class Ellipse implements IShape {
 
     @Override
     public void clear() {
-        Stroke stroke = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 1,
-                new float[]{9}, 0);
-        g.setStroke(stroke);
         g.setColor(Color.WHITE);
-        g.fillOval(shape.getTwoPoint().getMinXY().getX() - 5, shape.getTwoPoint().getMinXY().getY() - 5,
-                shape.getTwoPoint().getWidth() + 10, shape.getTwoPoint().getHeight() + 10);
-        g.drawOval(shape.getTwoPoint().getMinXY().getX() - 5, shape.getTwoPoint().getMinXY().getY() - 5,
-                shape.getTwoPoint().getWidth() + 10, shape.getTwoPoint().getHeight() + 10);
+        g.fillRect(0, 0, 9999, 9999);
     }
 
     @Override

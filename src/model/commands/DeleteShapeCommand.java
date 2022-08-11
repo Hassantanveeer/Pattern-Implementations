@@ -18,7 +18,7 @@ public class DeleteShapeCommand implements ICommand {
     }
 
     public void run() {
-        movementAlert = new MovementAlert();
+        movementAlert = new MovementAlert(shapeList);
         myUndoRedoDeleteList = shapeList.getUndoRedoDeleteList();
         deleteShape = new DeleteShape(shapeList);
         deleteShape.delete();
@@ -28,7 +28,7 @@ public class DeleteShapeCommand implements ICommand {
     @Override
     public void undo() {
         deleteShape.deleteShapeUndo();
-        movementAlert.updateCurrentObserver(shapeList);
+        movementAlert.updateCurrentObserver();
     }
 
     @Override

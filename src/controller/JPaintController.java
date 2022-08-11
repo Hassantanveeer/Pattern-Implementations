@@ -3,9 +3,11 @@ package controller;
 import model.ShapeList;
 import model.commands.CopyShapeCommand;
 import model.commands.DeleteShapeCommand;
+import model.commands.GroupShapeCommand;
 import model.commands.PasteShapeCommand;
 import model.commands.RedoCommand;
 import model.commands.UndoCommand;
+import model.commands.UngroupShapeCommand;
 import model.interfaces.IApplicationState;
 import view.EventName;
 import view.interfaces.IEventCallback;
@@ -44,6 +46,8 @@ public class JPaintController implements IJPaintController {
         uiModule.addEvent(EventName.COPY, () -> new CopyShapeCommand(shapeList).run());
         uiModule.addEvent(EventName.PASTE, () -> new PasteShapeCommand(shapeList).run());
         uiModule.addEvent(EventName.DELETE, () -> new DeleteShapeCommand(shapeList).run());
+        uiModule.addEvent(EventName.GROUP, () -> new GroupShapeCommand(shapeList).run());
+        uiModule.addEvent(EventName.UNGROUP, () -> new UngroupShapeCommand(shapeList).run());
 
     }
 }

@@ -1,6 +1,4 @@
-# JPaint-SE-450
 
-# Hassan Tanveer
 
 ## All design pattern implemented code
 
